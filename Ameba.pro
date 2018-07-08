@@ -1,18 +1,36 @@
 
+# DEFINES
+
+win32|win64:CONFIG += win
+unix:!macx:!android:CONFIG += linux
+macx:CONFIG += osx
+android:CONFIG += android
+
+win:DEFINES += WIN
+linux:DEFINES += LINUX
+osx:DEFINES += OSX
+android:DEFINES += ANDROID
+
+# PROJECT
+
 TEMPLATE = app
 
 CONFIG += qt c++11
 CONFIG -= debug_and_release debug_and_release_target
 QT += widgets
-QT += core gui
 
 HEADERS += $$files(Source/*.h, true)
 SOURCES += $$files(Source/*.cpp, true)
-
-QMAKE_CXXFLAGS += /wd4250 /wd4800 /wd5030
-
 INCLUDEPATH += Source
 
 RESOURCES = ameba.qrc
 
-include(deployment.pri)
+# OPTIONS
+
+win|osx {
+    QMAKE_CXXFLAGS += /wd4250 /wd4800 /wd5030
+}
+
+linux|android {
+    QMAKE_CXXFLAGS += -std=c++0x -fpermissive -Wno-attribute
+}
