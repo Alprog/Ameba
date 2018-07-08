@@ -1,11 +1,18 @@
 
 TEMPLATE = app
 
-QT += qml quick
-CONFIG += c++11
+CONFIG += qt c++11
+CONFIG -= debug_and_release debug_and_release_target
+QT += widgets
+QT += core gui
 
-SOURCES += Source/main.cpp
+HEADERS += $$files(Source/*.h, true)
+SOURCES += $$files(Source/*.cpp, true)
 
-RESOURCES += qml.qrc
+QMAKE_CXXFLAGS += /wd4250 /wd4800 /wd5030
+
+INCLUDEPATH += Source
+
+RESOURCES = ameba.qrc
 
 include(deployment.pri)
