@@ -14,7 +14,9 @@ MainWindow::MainWindow(QWidget* parent)
     setWindowTitle("Ameba");
     setWindowIcon(QIcon(":/Images/Icon.png"));
     setWindowOpacity(1);
-    //setCentralWidget(documents);
+
+    textEditor = new QTextEdit(this);
+    setCentralWidget(textEditor);
 }
 
 MainWindow::~MainWindow()
