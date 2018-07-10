@@ -1,6 +1,7 @@
 
 #pragma once
 #include <QMainWindow>
+#include <QPushButton>
 #include <TextEditor.h>
 
 class MainWindow : public QMainWindow
@@ -16,4 +17,5 @@ private slots:
 
 private:
     TextEditor* textEditor;
+    QPushButton* button;
 };

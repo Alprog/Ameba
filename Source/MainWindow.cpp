@@ -9,7 +9,6 @@
 #include <QEvent>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
-#include <QPushButton>
 
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
@@ -27,7 +26,8 @@ MainWindow::MainWindow(QWidget* parent)
         {
             hLayout->setMargin(0);
 
-            auto button = new QPushButton("Button");
+            button = new QPushButton("Button");
+
             button->setIcon(QIcon());
             button->setMaximumSize(300, 130);
             hLayout->addWidget(button);
@@ -40,6 +40,8 @@ MainWindow::MainWindow(QWidget* parent)
         textEditor = new TextEditor(nullptr);
         layout->addWidget(textEditor);
     }
+
+    button->setFocusProxy(textEditor);
 
     auto widget = new QWidget();
     widget->setLayout(layout);
