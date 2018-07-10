@@ -1,7 +1,7 @@
 
 #pragma once
 #include <QMainWindow>
-#include <QTextEdit>
+#include <TextEditor.h>
 
 class MainWindow : public QMainWindow
 {
@@ -11,6 +11,9 @@ public:
     explicit MainWindow(QWidget* parent = 0);
     ~MainWindow();
 
+private slots:
+    void onButtonClicked();
+
 private:
-    QTextEdit* textEditor;
+    TextEditor* textEditor;
 };
