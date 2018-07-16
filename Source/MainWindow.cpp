@@ -59,5 +59,5 @@ void MainWindow::onButtonClicked()
     QTextCursor cursor(textEditor->textCursor());
     cursor.select(QTextCursor::WordUnderCursor);
     textEditor->setTextCursor(cursor);
-    //textEditor->setFocus();
+    textEditor->viewport()->repaint();
 }
